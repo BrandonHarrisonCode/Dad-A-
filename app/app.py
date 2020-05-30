@@ -1,8 +1,12 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 
+from Database import Database
+
 app = Flask(__name__)
 CORS(app)
+
+database = Database()
 
 
 @app.route("/")
@@ -12,7 +16,7 @@ def index():
 
 @app.route("/random")
 def random():
-    data = {"joke": "Random joke"}
+    data = {"joke": database.get_random_joke()}
     return jsonify(data)
 
 
