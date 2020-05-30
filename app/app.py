@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -12,7 +12,8 @@ def index():
 
 @app.route("/random")
 def random():
-    return "Random joke"
+    data = {"joke": "Random joke"}
+    return jsonify(data)
 
 
 if __name__ == "__main__":
