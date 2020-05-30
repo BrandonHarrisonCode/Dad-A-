@@ -16,7 +16,8 @@ def index():
 
 @app.route("/random")
 def random():
-    data = {"joke": database.get_random_joke()}
+    id, joke = database.get_random_joke()
+    data = {"id": id, "joke": joke}
     return jsonify(data)
 
 
