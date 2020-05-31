@@ -4,7 +4,7 @@ import psycopg2
 
 class Database:
     def __init__(self):
-        self.conn = psycopg2.connect(os.environ.get("DATABASE_URL"))
+        self.conn = psycopg2.connect(os.environ["DATABASE_URL"], connect_timeout=5)
 
     def get_random_joke(self):
         cur = self.conn.cursor()
