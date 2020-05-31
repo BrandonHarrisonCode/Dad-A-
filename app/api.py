@@ -3,18 +3,18 @@ from flask_cors import CORS
 
 from .database import Database
 
-app = Flask(__name__)
-CORS(app)
+api = Flask(__name__)
+CORS(api)
 
 database = Database()
 
 
-@app.route("/")
+@api.route("/")
 def index():
     return "This is the Dad-A-Base api."
 
 
-@app.route("/random")
+@api.route("/random")
 def random():
     id, joke = database.get_random_joke()
     data = {"id": id, "joke": joke}
@@ -22,4 +22,4 @@ def random():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=False, port=os.environ.get("PORT", 80))
+    api.run(host="0.0.0.0", debug=False, port=os.environ.get("PORT", 80))
