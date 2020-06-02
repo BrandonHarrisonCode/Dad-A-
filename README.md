@@ -17,6 +17,12 @@ The Dad-A-Base backend was built with:
 * [Postgres](https://www.postgresql.org/) (for the Dad-A-Base itself)
 * [Heroku](https://www.heroku.com/) (for hosting)
 
+# Test
+
+All tests are written using `Pytest`.
+
+Use `python -m pytest` to run the testing suite. Note that due to the way Python handles imports, running `pytest` does not work on its own. 
+
 # Contribute
 
 Any and all contributions are welcome. This is a fun, on-the-side kind of project, so please be patient with me getting back to you.
